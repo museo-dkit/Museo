@@ -1,4 +1,4 @@
-from sqlalchemy import DECIMAL, JSON, TEXT, ForeignKey, String
+from sqlalchemy import DECIMAL, JSON, TEXT, Boolean, ForeignKey, String, false
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
@@ -19,3 +19,6 @@ class ShopProduct(Base):
     image_s3_url: Mapped[str | None] = mapped_column(TEXT, nullable=True)
     product_url: Mapped[str | None] = mapped_column(TEXT, nullable=True)
     price: Mapped[float | None] = mapped_column(DECIMAL(10, 2), nullable=True)
+    is_example: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, default=False, server_default=false()
+    )

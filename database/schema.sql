@@ -60,6 +60,7 @@ CREATE TABLE shop_products (
     image_s3_url TEXT,
     product_url TEXT,
     price DECIMAL(10,2),
+    is_example BOOLEAN NOT NULL DEFAULT FALSE,
 
     CONSTRAINT fk_shop_products_shop
         FOREIGN KEY (shop_id) REFERENCES shops(id),
